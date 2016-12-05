@@ -18,7 +18,7 @@ var __DEV__ = process.env.NODE_ENV !== 'production';
 module.exports = {
 	
 	entry :  {
-		bundle : "./index.js",
+		bundle : "./src/html/index.js",
 		lib : ["react","react-dom"]
 	},
 
@@ -46,6 +46,11 @@ module.exports = {
 			  loaders: [
 			    'url?limit=8000&name=images/[hash].[ext]'
 			  ]
+			},
+			//处理html页面中图片
+			{
+				test : /\.html$/,
+				loader : "html-withimg-loader"
 			}
 		]
 	},
@@ -78,7 +83,7 @@ module.exports = {
 	    new HtmlWebpackPlugin({
 	    	filename : "index.html",
 	    	chunks : ["bundle","lib"],
-	    	template : "index.html",
+	    	template : "./src/html/index.html",
 	    	minify : __DEV__ ? false : {
 	    		collapseWhitespace: true,
 		      	collapseInlineTagWhitespace: true,
