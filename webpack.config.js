@@ -2,6 +2,18 @@
 var path = require("path");
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var WebpackMd5Hash = require("webpack-md5-hash");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+
+// css autoprefixer
+var precss = require("precss");
+var autoprefixer = require("autoprefixer");
+
+//js页面中__DEV__变量
+var devFlagPlugin = new webpack.DefinePlugin({
+	__DEV__ : JSON.stringify(JSON.parse(process.env.DEBUG || "false"))
+});
+//webpack.config.js中使用
+var __DEV__ = process.env.NODE_ENV !== 'production';
 
 module.exports = {
 	
@@ -12,34 +24,70 @@ module.exports = {
 
 	output : {
 		path : "./dist",
-		filename : "[name][chunkhash:8].js",
+		filename : __DEV__ ? "[name].js" :"[name][chunkhash:8].js",
 		//将entry中lib单独打包一个lib.js中
-		chunkFilename : "[name][chunkhash:8].js"
+		chunkFilename : __DEV__ ? "[name].js" : "[name][chunkhash:8].js"
 	},
 
 	module : {
 		loaders : [
 			{
-				test : /\.js$/,
-				loaders : ["babel"],
+				test : /\.jsx?$/,
+				loaders : ["babel?presets[]=es2015&presets[]=react"],
 				exclude : /node_modules/
 			},
             {
 			    test: /\.(less|css)$/,
-			    loader:  ExtractTextPlugin.extract("style-loader","css-loader!less-loader")
+			    loader:  ExtractTextPlugin.extract("style", "css!postcss!less"),
+			},
+			//图片路径处理，压缩
+			{
+			  test: /\.(?:jpg|gif|png|svg)$/,
+			  loaders: [
+			    'url?limit=8000&name=images/[hash].[ext]'
+			  ]
 			}
 		]
 	},
+
 	resolve : {
 		alias : {
-			bundlecss : path.join(__dirname,"./src/css/bundle.less")
+			bundlecss : "./src/css/bundle.less"
 		}
 	},
+
+	postcss : function(){
+		return [precss,autoprefixer]
+	},
+
 	plugins: [
-    	new ExtractTextPlugin("[name][contenthash:8].css"),
+    	new ExtractTextPlugin(__DEV__ ? "[name].css" : "[name][contenthash:8].css"),
     	new webpack.optimize.CommonsChunkPlugin({
     		names : ["lib"]
     	}),
-    	new WebpackMd5Hash()
+    	//
+    	new WebpackMd5Hash(),
+    	devFlagPlugin,
+    	//压缩处理
+    	/*new webpack.optimize.UglifyJsPlugin({
+	      compress: {
+	      	warnings: false
+	      }
+	    }),
+		*/
+	    new HtmlWebpackPlugin({
+	    	filename : "index.html",
+	    	chunks : ["bundle","lib"],
+	    	template : "index.html",
+	    	minify : __DEV__ ? false : {
+	    		collapseWhitespace: true,
+		      	collapseInlineTagWhitespace: true,
+		      	removeRedundantAttributes: true,
+		      	removeEmptyAttributes: true,
+		      	removeScriptTypeAttributes: true,
+		      	removeStyleLinkTypeAttributes: true,
+		      	removeComments: true
+	    	}
+	    })
 	]
 }

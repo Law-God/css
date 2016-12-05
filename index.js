@@ -1,4 +1,3 @@
-﻿require("./bundle.less");
-
-let React = require("react");
-let ReactDOM = require("react-dom");
+﻿import React from 'react';
+import ReactDOM from 'react-dom';
+import "./src/css/bundle.less";
