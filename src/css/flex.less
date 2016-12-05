@@ -1,0 +1,40 @@
+/* flex 弹性布局 */
+
+div{
+    border: 1px solid red;
+}
+
+.nav-head{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #14191e;
+    color: #fff;
+    a.logo{
+        display: block;
+        width: 140px;
+        height: 40px;
+        border:0;
+        background: url(images/logo.png) no-repeat center center;
+        background-size: 100%;
+    }
+    
+}
+
+
+
+.flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-item-row{
+    height:100%;
+    flex : 1 1 auto;
+}
+
+.flex-item-column{
+    
+}
