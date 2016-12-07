@@ -18,7 +18,7 @@ var __DEV__ = process.env.NODE_ENV !== 'production';
 module.exports = {
 	
 	entry :  {
-		bundle : "./src/html/index.js",
+		bundle : ["./src/html/index.js"],
 		lib : ["react","react-dom"]
 	},
 
