@@ -18,3 +18,7 @@ caption,th{text-align:left}
 a{text-decoration:none}
 a:link,a:visited{text-decoration:none}
 a:hover {color:#14191e;}
+
+body{
+	font : 16px/1.5 "Microsoft Yahei","Hiragino Sans GB",Helvetica,"Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
+}

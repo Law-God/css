@@ -29,7 +29,7 @@ var Main = React.createClass({
 					<div className="flex-item-row">
 						<img src={xmjgImg}/>
 						<dl>
-							<dt>霹雳天命之仙魔鏖锋</dt>
+							<dt><h3><span className="cover"></span>霹雳天命之仙魔鏖锋</h3></dt>
 							<dd>
 								天命苦劫修罗海，三光尽现仙门在；<br/>
 								仙魔鏖锋战云开，邪心魔佛见如来。
@@ -39,7 +39,7 @@ var Main = React.createClass({
 					<div className="flex-item-row">
 						<img src={gyzbImg}/>
 						<dl>
-							<dt>霹雳狼烟之古原争霸</dt>
+							<dt><h3><span className="cover"></span>霹雳狼烟之古原争霸</h3></dt>
 							<dd>
 								单锋破天枪贯地，剑争日辉弓坠月；<br/>
 								狩宇奇风气吞雷，术水阴阳刀电夜。<br/>
@@ -51,7 +51,7 @@ var Main = React.createClass({
 					<div className="flex-item-row">
 						<img src={wjctImg}/>
 						<dl>
-							<dt>霹雳狼烟之万堺尘涛</dt>
+							<dt><h3><span className="cover"></span>霹雳狼烟之万堺尘涛</h3></dt>
 							<dd>
 								千古尘涛江湖路，太上府下非道悟。<br/>
 								九州锋镝何人解，九轮征伐几时无。<br/>
@@ -64,7 +64,7 @@ var Main = React.createClass({
 						<p><img src={jllyImg}/></p>
 						<div>
 							<dl>
-								<dt>霹雳狼烟之九轮燎原</dt>
+								<dt><h3><span className="cover"></span>霹雳狼烟之九轮燎原</h3></dt>
 								<dd>
 									千日失忆，还真忘，莲生解锋镝。<br/>
 									一线生数，史迁笔，清荷新纪元。<br/>
