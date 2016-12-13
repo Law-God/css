@@ -1,8 +1,15 @@
 ﻿/*页面重置方案*/
 @import "./reset.css";
 
-/*flex弹性布局容器*/
-@import "./flex.less";
+/* 函数式样式 */
+@import "./fn.less";
+
+/* 通用样式 */
+@import "./common.less";
+
+/*首页*/
+//跟fn.less引入顺序无关，也可在fn.less前引入
+@import "./index.less";
 
 /*图形样式*/
 @import "./graph.less";

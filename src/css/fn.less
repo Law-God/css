@@ -1,0 +1,18 @@
+/* 函数式样式 */
+
+/*flex样式*/
+/*容器*/
+.base-flex-container(@display:flex,@flex-flow:row nowrap,@justify-content:flex-start,@align-items:stretch,@align-content:stretch){
+    display: @display;
+    flex-flow: @flex-flow;
+    justify-content : @justify-content;
+    align-items : @align-items;
+    align-content : @align-content;
+}
+/*项目*/
+.base-flex-item-row(@order:0,@flex:1 1 auto,@align-self:auto){
+    order: @order;
+    flex: @flex;
+    align-self: @align-self;
+}
+/*flex样式*/

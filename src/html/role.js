@@ -1,21 +1,22 @@
-﻿import React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import "../css/bundle.less";
+import '../css/bundle.less';
 
 const logoImg = require("../css/images/logo.png");
+
 var Header = React.createClass({
 	render : function(){
-		return  <div className="flex-container nav-head">
-					<div className="flex-item-row1"><a href="#" ><img src={logoImg}/></a></div>
-					<div className="flex-item-row2"><a href="#" >首页</a><a href="#" >剧集</a><a href="#" >角色</a></div>
-					<div className="flex-item-row3"><a href="#" >登录</a><a href="#" >注册</a></div>
+		return <div className="flex-container nav-head">
+					<div className="nav-item1"><a href="#" ><img src={logoImg}/></a></div>
+					<div className="nav-item2"><a href="#" >首页</a><a href="#" >剧集</a><a href="#" >角色</a></div>
+					<div className="nav-item3"><a href="#" >登录</a><a href="#" >注册</a></div>
 				</div>
 	}
 });
 
 ReactDOM.render(
 	<Header />,
-	document.getElementById("Header")
+	document.getElementById('Header')
 );
 
 const xmjgImg = require("../css/images/xmjf.jpg");
@@ -83,10 +84,9 @@ ReactDOM.render(
 	document.getElementById("Main")
 );
 
-
 var Footer = React.createClass({
 	render : function(){
-		return <footer className="footer">
+		return <div className="footer">
 					<div className="flex-item-footer1">
 						<div className="flex-item-footer1-1"><a href="#">网站首页</a><a href="#">联系我们</a><a href="#">常见问题</a><a href="#">意见反馈</a><a href="#">友情链接</a></div>
 						<div className="flex-item-footer1-2">Copyright © 2016 phantom.com All Rights Reserved</div>		
@@ -96,7 +96,7 @@ var Footer = React.createClass({
 						<a href="#" className="follous follous-weibo"></a>
 						<a href="#" className="follous follous-qzone"></a>
 					</div>
-				</footer>
+				</div>
 	}
 });
 
