@@ -1,0 +1,38 @@
+@import '../../../css/common.less';
+
+
+.nav-head{
+    height: 60px;
+    line-height: 60px;
+    background-color: @color-14191e;
+    overflow: hidden;
+    .nav-item1,.nav-item2,.nav-item3{
+      display: flex;  
+    }
+    .nav-item1{
+        width:200px;
+        flex-flow: row-reverse;
+    }
+    .nav-item2{
+        .base-flex-item-row();
+        justify-content: flex-start;
+        line-height: 30px;
+    }
+    .nav-item3{
+        width:200px;
+        flex-flow: row-reverse;
+        line-height: 30px;
+    }
+    a{
+        display: inline-flex;
+        align-items: center;
+        color: #fff;
+        padding:0 10px 0 10px; 
+    }
+    .nav-item2 a,.nav-item3 a{
+        transition: .3s;
+    }
+    .nav-item2 a:hover,.nav-item3 a:hover{
+        background-color: @color-5e5e5e;
+    }
+}
