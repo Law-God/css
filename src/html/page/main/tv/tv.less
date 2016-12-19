@@ -1,0 +1,46 @@
+@import '../../../../css/common.less';
+
+.main{
+    height: 100%;
+    padding: 20px;
+    .base-flex-container(@flex-flow:row wrap,@justify-content:space-between,@align-items:space-around,@align-content:space-around);
+    .flex-item-row{
+        width: 268px;
+        height: 470px;
+        overflow: hidden;
+        box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5);
+        border-radius: 5px;
+        .base-flex-item-row(@flex:0 1 268px);
+        dl{
+            width:100%;
+            height:94px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #fff;
+            position: relative;
+            transition: margin-top .5s;
+            h3{
+                color:white;
+                background:@color-5e5e5e;
+                font-weight:bold;
+                position:relative;
+            }
+            
+            .cover{
+                width:100%;
+                height:100%;
+                position:absolute;
+                background:linear-gradient(to bottom,@color-5e5e5e 0%,transparent 50%,@color-5e5e5e);
+                opacity:0.7;
+            }
+        }
+        dl:hover{
+            margin-top:-60px;
+            overflow: visible;
+        }
+    }
+    img{
+        width: 268px;
+        height: 378px;
+    }
+}
