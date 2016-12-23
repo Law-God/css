@@ -15,11 +15,14 @@ var devFlagPlugin = new webpack.DefinePlugin({
 //webpack.config.js中使用
 var __DEV__ = process.env.NODE_ENV !== 'production';
 
+//缓存路径
+var CACHE_PATH = "./cache";
+
 module.exports = {
 	
 	entry :  {
 		bundle : ["./src/html/index.js"],
-		lib : ["react","react-dom"]
+		lib : ["react","react-dom","react-router"]
 	},
 
 	output : {
@@ -33,8 +36,8 @@ module.exports = {
 		loaders : [
 			{
 				test : /\.jsx?$/,
-				loaders : ["babel?presets[]=es2015&presets[]=react"],
-				exclude : /node_modules/
+				exclude : /node_modules/,
+				loaders : ["babel?cacheDirectory="+CACHE_PATH+"&presets[]=es2015&presets[]=react"]
 			},
             {
 			    test: /\.(less|css)$/,

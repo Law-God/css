@@ -1,6 +1,6 @@
 ﻿import React, { Component } from 'react';
 import ReactDOM, { render } from 'react-dom';
-import { Router, Route, hashHistory, Link } from 'react-router'
+import { Router, Route, hashHistory, Link, IndexRoute } from 'react-router'
 import "../css/bundle.less";
 
 //page
@@ -13,23 +13,23 @@ class Application extends Component{
 	render(){
 		return(
 			<div className="flex-container-body">
-				<Header/>
-				<Tv/>
-				<Footer/>
+				<Header />
+				{this.props.children}
+				<Footer />
 			</div>
 		);
 	}
 }
 
-render(
-	(
+render((
 		<Router history={hashHistory}>
 	    	<Route path="/" component={Application}>
-	    		<Route path="/tv" component={Tv}/>
-	    		<Route path="/role" component={Role}/>
+	    		<IndexRoute component={ Tv } />
+	    		<Route path="header" component={Header} />
+	    		<Route path="tv" component={Tv}/>
+	    		<Route path="role" component={Role}/>
+	    		<Route path="footer" component={Footer} />
 	    	</Route>
-	    	
-	    </Router>
-    ),document.getElementById("app")
+	    </Router>),document.getElementById("app")
  );
 
