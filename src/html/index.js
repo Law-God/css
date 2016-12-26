@@ -24,7 +24,7 @@ class Application extends Component{
 render((
 		<Router history={hashHistory}>
 	    	<Route path="/" component={Application}>
-	    		<IndexRoute component={ Tv } />
+	    		<IndexRoute component={ Tv} />
 	    		<Route path="header" component={Header} />
 	    		<Route path="tv" component={Tv}/>
 	    		<Route path="role" component={Role}/>
